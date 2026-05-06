@@ -26,6 +26,12 @@ Please make sure to ask for permission before using, modifying, or distributing 
 
 **NOTES:**
 
+```lua
+pcall(function()
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/artaokai/piano-roblox/main/MAIN.lua", true))()
+end)
+```
+
 * All files loaded via URLs from hellohellohell0.com (e.g., `translator.lua`) are identical to the files in this GitHub repository with the same name.
 
 ---
