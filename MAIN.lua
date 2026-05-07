@@ -5,8 +5,8 @@ local Fluent = loadstring(game:HttpGet("https://github.com/dawid-scripts/Fluent/
 local SaveManager = loadstring(game:HttpGet("https://raw.githubusercontent.com/dawid-scripts/Fluent/master/Addons/SaveManager.lua"))()
 local InterfaceManager = loadstring(game:HttpGet("https://raw.githubusercontent.com/dawid-scripts/Fluent/master/Addons/InterfaceManager.lua"))()
 
-local translator = loadstring(game:HttpGet("https://raw.githubusercontent.com/artaokai/piano-roblox/main/translator.lua", true))()
-local NotificationLibrary = loadstring(game:HttpGet("https://raw.githubusercontent.com/artaokai/piano-roblox/main/notif_lib.lua"))()
+local translator = loadstring(game:HttpGet("https://raw.githubusercontent.com/artaokai/piano-pix/main/translator.lua", true))()
+local NotificationLibrary = loadstring(game:HttpGet("https://raw.githubusercontent.com/artaokai/piano-pix/main/notif_lib.lua"))()
 
 local function translateText(text)
     return translator:translateText(text)
@@ -127,9 +127,9 @@ local function playSong(songData, isCustom)
     end
 
     if Options.SpoofMidi and Options.SpoofMidi.Value then
-        loadstring(game:HttpGet("https://raw.githubusercontent.com/artaokai/piano-roblox/main/midi_spoof_loader.lua", true))()
+        loadstring(game:HttpGet("https://raw.githubusercontent.com/artaokai/piano-pix/main/midi_spoof_loader.lua", true))()
     else
-        loadstring(game:HttpGet("https://raw.githubusercontent.com/artaokai/piano-roblox/main/loader_main.lua", true))()
+        loadstring(game:HttpGet("https://raw.githubusercontent.com/artaokai/piano-pix/main/loader_main.lua", true))()
     end
     
     task.spawn(function()
@@ -239,7 +239,7 @@ Tabs.Custom:AddButton({
     Title = "Add Custom Song",
     Description = "Open the song adder tool",
     Callback = function()
-        loadstring(game:HttpGet("https://raw.githubusercontent.com/artaokai/piano-roblox/main/add_song.lua", true))()
+        loadstring(game:HttpGet("https://raw.githubusercontent.com/artaokai/piano-pix/main/add_song.lua", true))()
     end
 })
 

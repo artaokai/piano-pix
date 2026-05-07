@@ -3,8 +3,8 @@
 
 _G.STOPIT = false
 
-local NotificationLibrary = loadstring(game:HttpGet("https://raw.githubusercontent.com/artaokai/piano-roblox/main/notif_lib.lua"))()
-local translator = loadstring(game:HttpGet("https://raw.githubusercontent.com/artaokai/piano-roblox/main/translator.lua", true))()
+local NotificationLibrary = loadstring(game:HttpGet("https://raw.githubusercontent.com/artaokai/piano-pix/main/notif_lib.lua"))()
+local translator = loadstring(game:HttpGet("https://raw.githubusercontent.com/artaokai/piano-pix/main/translator.lua", true))()
 
 local function translateText(text)
     return translator:translateText(text) -- lang shouldve alr been set by main script.
@@ -22,7 +22,7 @@ end
 
 x = "hi"
 
-loadstring(game:HttpGet("https://raw.githubusercontent.com/artaokai/piano-roblox/main/load.lua", true))()
+loadstring(game:HttpGet("https://raw.githubusercontent.com/artaokai/piano-pix/main/load.lua", true))()
 
 -- Gui to Lua
 -- Version: 3.2

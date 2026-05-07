@@ -12,7 +12,7 @@ local closeButton = Instance.new("TextButton")
 local ImageLabel = Instance.new("ImageLabel")
 local TextLabel = Instance.new("TextLabel")
 
-local translator = loadstring(game:HttpGet("https://raw.githubusercontent.com/artaokai/piano-roblox/main/translator.lua", true))()
+local translator = loadstring(game:HttpGet("https://raw.githubusercontent.com/artaokai/piano-pix/main/translator.lua", true))()
 
 local function translateText(text)
     return translator:translateText(text) -- lang shouldve alr been set by main script.

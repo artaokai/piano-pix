@@ -1,8 +1,8 @@
 -- Copyright (C) 2025 Arta
 -- Licensed under the GNU GPL v3. See LICENSE file for details.
 
-local NotificationLibrary = loadstring(game:HttpGet("https://raw.githubusercontent.com/artaokai/piano-roblox/main/notif_lib.lua"))()
-local translator = loadstring(game:HttpGet("https://raw.githubusercontent.com/artaokai/piano-roblox/main/translator.lua", true))()
+local NotificationLibrary = loadstring(game:HttpGet("https://raw.githubusercontent.com/artaokai/piano-pix/main/notif_lib.lua"))()
+local translator = loadstring(game:HttpGet("https://raw.githubusercontent.com/artaokai/piano-pix/main/translator.lua", true))()
 
 local function playSound(soundId, loudness)
     if not soundId or tostring(soundId) == "0" or tostring(soundId) == "" then return end

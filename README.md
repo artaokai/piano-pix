@@ -12,7 +12,7 @@
 To run Auto Piano, use the following loadstring in your executor:
 
 ```lua
-loadstring(game:HttpGet("https://raw.githubusercontent.com/artaokai/piano-roblox/main/MAIN.lua", true))()
+loadstring(game:HttpGet("https://raw.githubusercontent.com/artaokai/piano-pix/main/MAIN.lua", true))()
 ```
 
 ## Credits

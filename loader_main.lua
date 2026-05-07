@@ -3,8 +3,8 @@
 
 _G.STOPIT = true
 
-local NotificationLibrary = loadstring(game:HttpGet("https://raw.githubusercontent.com/artaokai/piano-roblox/main/notif_lib.lua"))()
-local translator = loadstring(game:HttpGet("https://raw.githubusercontent.com/artaokai/piano-roblox/main/translator.lua"))()
+local NotificationLibrary = loadstring(game:HttpGet("https://raw.githubusercontent.com/artaokai/piano-pix/main/notif_lib.lua"))()
+local translator = loadstring(game:HttpGet("https://raw.githubusercontent.com/artaokai/piano-pix/main/translator.lua"))()
 
 local function translateText(text)
     return translator:translateText(text)
@@ -20,7 +20,7 @@ function playSound(soundId, loudness)
     task.delay(10, function() if sound then sound:Destroy() end end)
 end
 
-loadstring(game:HttpGet("https://raw.githubusercontent.com/artaokai/piano-roblox/main/load.lua", true))()
+loadstring(game:HttpGet("https://raw.githubusercontent.com/artaokai/piano-pix/main/load.lua", true))()
 
 -- Premium Modern Playback UI
 local lilgui = Instance.new("ScreenGui")
