@@ -12,11 +12,13 @@ local function translateText(text)
 end
 
 function playSound(soundId, loudness)
+    if not soundId or tostring(soundId) == "0" or tostring(soundId) == "" then return end
     local sound = Instance.new("Sound")
-    sound.SoundId = "rbxassetid://" .. soundId
+    sound.SoundId = "rbxassetid://" .. tostring(soundId)
     sound.Parent = game.Players.LocalPlayer.Character or game.Players.LocalPlayer
     sound.Volume = loudness or 1
     sound:Play()
+    task.delay(10, function() if sound then sound:Destroy() end end)
 end
 
 x = "hi"

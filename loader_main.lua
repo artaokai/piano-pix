@@ -3,22 +3,24 @@
 
 _G.STOPIT = true
 
-local NotificationLibrary = loadstring(game:HttpGet("https://hellohellohell0.com/talentless-raw/notif_lib.lua"))()
-local translator = loadstring(game:HttpGet("https://hellohellohell0.com/talentless-raw/translator.lua"))()
+local NotificationLibrary = loadstring(game:HttpGet("https://raw.githubusercontent.com/artaokai/piano-roblox/main/notif_lib.lua"))()
+local translator = loadstring(game:HttpGet("https://raw.githubusercontent.com/artaokai/piano-roblox/main/translator.lua"))()
 
 local function translateText(text)
     return translator:translateText(text)
 end
 
 function playSound(soundId, loudness)
+    if not soundId or tostring(soundId) == "0" or tostring(soundId) == "" then return end
     local sound = Instance.new("Sound")
-    sound.SoundId = "rbxassetid://" .. soundId
+    sound.SoundId = "rbxassetid://" .. tostring(soundId)
     sound.Parent = game.Players.LocalPlayer.Character or game.Players.LocalPlayer
     sound.Volume = loudness or 1
     sound:Play()
+    task.delay(10, function() if sound then sound:Destroy() end end)
 end
 
-loadstring(game:HttpGet("https://hellohellohell0.com/talentless-raw/load.lua", true))()
+loadstring(game:HttpGet("https://raw.githubusercontent.com/artaokai/piano-roblox/main/load.lua", true))()
 
 -- Premium Modern Playback UI
 local lilgui = Instance.new("ScreenGui")

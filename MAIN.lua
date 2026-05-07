@@ -5,8 +5,8 @@ local Fluent = loadstring(game:HttpGet("https://github.com/dawid-scripts/Fluent/
 local SaveManager = loadstring(game:HttpGet("https://raw.githubusercontent.com/dawid-scripts/Fluent/master/Addons/SaveManager.lua"))()
 local InterfaceManager = loadstring(game:HttpGet("https://raw.githubusercontent.com/dawid-scripts/Fluent/master/Addons/InterfaceManager.lua"))()
 
-local translator = loadstring(game:HttpGet("https://hellohellohell0.com/talentless-raw/translator.lua", true))()
-local NotificationLibrary = loadstring(game:HttpGet("https://hellohellohell0.com/talentless-raw/notif_lib.lua"))()
+local translator = loadstring(game:HttpGet("https://raw.githubusercontent.com/artaokai/piano-roblox/main/translator.lua", true))()
+local NotificationLibrary = loadstring(game:HttpGet("https://raw.githubusercontent.com/artaokai/piano-roblox/main/notif_lib.lua"))()
 
 local function translateText(text)
     return translator:translateText(text)
@@ -107,21 +107,39 @@ local function playSong(songData, isCustom)
     _G.STOPIT = false
     _G.songisplaying = true
     
-    local songscript
+    local success, songscript
     if isCustom then
-        songscript = readfile(songData.file)
+        success, songscript = pcall(function() return readfile(songData.file) end)
     else
-        songscript = game:HttpGet("https://cdn.jsdelivr.net/gh/hellohellohell012321/TALENTLESS/SONGS/" .. songData.url, true)
+        success, songscript = pcall(function() 
+            return game:HttpGet("https://cdn.jsdelivr.net/gh/hellohellohell012321/TALENTLESS/SONGS/" .. songData.url, true)
+        end)
     end
     
+    if not success or not songscript or songscript == "" then
+        _G.songisplaying = false
+        Fluent:Notify({
+            Title = "Error",
+            Content = "Failed to load song script. Check your connection or the song URL.",
+            Duration = 5
+        })
+        return
+    end
+
     if Options.SpoofMidi and Options.SpoofMidi.Value then
-        loadstring(game:HttpGet("https://hellohellohell0.com/talentless-raw/midi_spoof_loader.lua", true))()
+        loadstring(game:HttpGet("https://raw.githubusercontent.com/artaokai/piano-roblox/main/midi_spoof_loader.lua", true))()
     else
-        loadstring(game:HttpGet("https://hellohellohell0.com/talentless-raw/loader_main.lua", true))()
+        loadstring(game:HttpGet("https://raw.githubusercontent.com/artaokai/piano-roblox/main/loader_main.lua", true))()
     end
     
     task.spawn(function()
-        loadstring(songscript)()
+        local playSuccess, playErr = pcall(function()
+            loadstring(songscript)()
+        end)
+        if not playSuccess then
+            _G.songisplaying = false
+            warn("Playback error: " .. tostring(playErr))
+        end
     end)
 end
 
@@ -134,9 +152,9 @@ Tabs.Main:AddParagraph({
 
 local songListContainer = Tabs.Songs:AddSection("Song Library")
 
-local function renderSongs(category, query)
-    songListContainer:Clear() -- This is a pseudo-function, Fluent sections don't have Clear. 
-    -- Actually I'll use a better approach for Fluent.
+if not Fluent then
+    warn("Failed to load Fluent UI library.")
+    return
 end
 
 -- Fluent doesn't easily support dynamic refreshing of sections without re-creating them or using custom frames.
@@ -221,7 +239,7 @@ Tabs.Custom:AddButton({
     Title = "Add Custom Song",
     Description = "Open the song adder tool",
     Callback = function()
-        loadstring(game:HttpGet("https://cdn.jsdelivr.net/gh/hellohellohell012321/TALENTLESS/add_song.lua", true))()
+        loadstring(game:HttpGet("https://raw.githubusercontent.com/artaokai/piano-roblox/main/add_song.lua", true))()
     end
 })
 
