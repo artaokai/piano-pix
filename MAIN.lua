@@ -13,8 +13,8 @@ local function translateText(text)
 end
 
 local Window = Fluent:CreateWindow({
-    Title = "TALENTLESS",
-    SubTitle = "v2.0 - by hellohellohell012321",
+    Title = "Auto Piano",
+    SubTitle = "by Arta",
     TabWidth = 160,
     Size = UDim2.fromOffset(580, 460),
     Acrylic = true,
@@ -292,8 +292,8 @@ Tabs.Settings:AddDropdown("Language", {
 Window:SelectTab(1)
 
 Fluent:Notify({
-    Title = "TALENTLESS Loaded",
-    Content = "Enjoy the music without keys!",
+    Title = "Auto Piano Loaded",
+    Content = "Enjoy the music!",
     Duration = 5
 })
 

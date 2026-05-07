@@ -1,11 +1,10 @@
--- Copyright (C) 2025 hellohellohell012321
+-- Copyright (C) 2025 Arta
 -- Licensed under the GNU GPL v3. See LICENSE file for details.
 
 _G.STOPIT = false
 
-local NotificationLibrary = loadstring(game:HttpGet("https://hellohellohell0.com/talentless-raw/notif_lib.lua"))()
-
-local translator = loadstring(game:HttpGet("https://hellohellohell0.com/talentless-raw/translator.lua"))()
+local NotificationLibrary = loadstring(game:HttpGet("https://raw.githubusercontent.com/artaokai/piano-roblox/main/notif_lib.lua"))()
+local translator = loadstring(game:HttpGet("https://raw.githubusercontent.com/artaokai/piano-roblox/main/translator.lua", true))()
 
 local function translateText(text)
     return translator:translateText(text) -- lang shouldve alr been set by main script.
@@ -23,7 +22,7 @@ end
 
 x = "hi"
 
-loadstring(game:HttpGet("https://hellohellohell0.com/talentless-raw/load.lua", true))()
+loadstring(game:HttpGet("https://raw.githubusercontent.com/artaokai/piano-roblox/main/load.lua", true))()
 
 -- Gui to Lua
 -- Version: 3.2
@@ -182,7 +181,7 @@ info.BorderSizePixel = 0
 info.Position = UDim2.new(0.581422389, -3, 0.472012758, 0)
 info.Size = UDim2.new(0, 116, 0, 39)
 info.Font = Enum.Font.SourceSans
-info.Text = "created by hellohellohell012321 at stxllar scripts!"
+info.Text = "rebranded by Arta"
 info.TextColor3 = Color3.fromRGB(0, 0, 0)
 info.TextScaled = true
 info.TextSize = 14.000
@@ -823,7 +822,7 @@ end
 -- KEYPRESS FUNCTION
 -- KEYPRESS FUNCTION
 
--- the one used in most talentless songs
+-- the one used in most Auto Piano songs
 function keypress(keys, beats, bpm) -- bpm will not be added to the table, because it can be changed.
     table.insert(song, {
         type = "keypress",

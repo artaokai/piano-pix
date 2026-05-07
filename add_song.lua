@@ -1,7 +1,8 @@
--- Copyright (C) 2025 hellohellohell012321
+-- Copyright (C) 2025 Arta
 -- Licensed under the GNU GPL v3. See LICENSE file for details.
 
-local NotificationLibrary = loadstring(game:HttpGet("https://hellohellohell0.com/talentless-raw/notif_lib.lua"))()
+local NotificationLibrary = loadstring(game:HttpGet("https://raw.githubusercontent.com/artaokai/piano-roblox/main/notif_lib.lua"))()
+local translator = loadstring(game:HttpGet("https://raw.githubusercontent.com/artaokai/piano-roblox/main/translator.lua", true))()
 
 local function playSound(soundId, loudness)
     if not soundId or tostring(soundId) == "0" or tostring(soundId) == "" then return end
@@ -12,8 +13,6 @@ local function playSound(soundId, loudness)
     sound:Play()
     task.delay(10, function() if sound then sound:Destroy() end end)
 end
-
-local translator = loadstring(game:HttpGet("https://hellohellohell0.com/talentless-raw/translator.lua"))()
 
 local function translateText(text)
     return translator:translateText(text) -- lang shouldve alr been set by main script.
@@ -183,19 +182,19 @@ submitSong.MouseButton1Click:Connect(function()
     local folderExists = false
     
 for _, file in ipairs(listfiles("")) do
-    if string.match(tostring(file), "TALENTLESS_CUSTOM_SONGS") then folderExists = true
+    if string.match(tostring(file), "AUTOPLANO_CUSTOM_SONGS") then folderExists = true
     end
 end
 
 if not folderExists then
     print("making custom songs folder")
-    makefolder("TALENTLESS_CUSTOM_SONGS")
+    makefolder("AUTOPLANO_CUSTOM_SONGS")
     print("created custom song folder")
 end
 
 songexists = false
 
-for _, file in ipairs(listfiles([[./TALENTLESS_CUSTOM_SONGS]])) do
+for _, file in ipairs(listfiles([[./AUTOPLANO_CUSTOM_SONGS]])) do
     print(tostring(file))
 	if string.find(tostring(file), songName .. ".txt") then -- if there is already a file with songname.txt in it then
         playSound("6493287948", 0.1) 
@@ -207,7 +206,7 @@ for _, file in ipairs(listfiles([[./TALENTLESS_CUSTOM_SONGS]])) do
 end
 
 if not songexists then
-    writefile("TALENTLESS_CUSTOM_SONGS/" .. songName .. ".txt", scriptInput) -- write the file in the song folder as a .txt
+    writefile("AUTOPLANO_CUSTOM_SONGS/" .. songName .. ".txt", scriptInput) -- write the file in the song folder as a .txt
     playSound("6493287948", 0.1) 
     NotificationLibrary:SendNotification("Success", string.format(translateText("songadded"), songName), 10)
     insertscript.Text = ""

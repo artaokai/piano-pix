@@ -1,4 +1,4 @@
--- TALENTLESS v2.0 - No Key, New UI
+-- Auto Piano by Arta - No Key, New UI
 -- Loadstring: loadstring(game:HttpGet("https://raw.githubusercontent.com/artaokai/piano-roblox/main/MAIN.lua", true))()
 
 pcall(function()
